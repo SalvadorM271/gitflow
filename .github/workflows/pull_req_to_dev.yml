@@ -19,8 +19,7 @@ jobs:
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
-          base: develop
-          branch: feature/feature_branch
+          branch: develop
           body: this is an auto generated pull request
           labels: automated pr
           draft: false
