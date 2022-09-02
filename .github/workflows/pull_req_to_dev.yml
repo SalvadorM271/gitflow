@@ -1,0 +1,25 @@
+name: "Deploy to github pages"
+
+on:
+  push:
+    branches:
+      - "develop"
+
+jobs:
+  createPullRequest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.TOKEN }}
+          commit-message: Update
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          signoff: false
+          branch: feature/feature_branch
+          body: this is an auto generated pull request
+          labels: automated pr
+          draft: false
