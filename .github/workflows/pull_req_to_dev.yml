@@ -20,6 +20,10 @@ jobs:
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
           branch: develop
-          body: this is an auto generated pull request
+          title: '[Example] Update report'
+          body: |
+            pr report
+            - pull request from feature to develop
+            - Auto-generated pull request
           labels: automated pr
           draft: false
