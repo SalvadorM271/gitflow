@@ -3,7 +3,7 @@ name: "Deploy to github pages"
 on:
   push:
     branches:
-      - "develop"
+      - "feature/feature_branch"
 
 jobs:
   createPullRequest:
@@ -19,6 +19,7 @@ jobs:
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
+          base: develop
           branch: feature/feature_branch
           body: this is an auto generated pull request
           labels: automated pr
