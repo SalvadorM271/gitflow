@@ -20,7 +20,8 @@ jobs:
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
-          base: develop
+          branch: develop
+          base: feature/feature_branch
           title: '[Example] Update report'
           body: |
             pr report
