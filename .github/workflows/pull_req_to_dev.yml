@@ -21,7 +21,6 @@ jobs:
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
           branch: feature/feature_branch
-          base: develop
           title: '[Example] Update report'
           body: |
             pr report
