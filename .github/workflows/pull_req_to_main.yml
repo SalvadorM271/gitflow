@@ -1,0 +1,24 @@
+name: "Deploy to github pages"
+
+on:
+  push:
+    branches:
+      - "test"
+
+#this action creates a pull request from the test to the testMain branch
+
+jobs:
+  testMainPromotion:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: testMain
+      - name: Reset promotion branch
+        run: |
+          git fetch origin test:test
+          git reset --hard test
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          branch: testMain-promotion #creates a temporary branch for the pull request

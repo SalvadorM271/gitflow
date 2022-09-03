@@ -5,6 +5,8 @@ on:
     branches:
       - "feature/feature_branch"
 
+#this action creates a pull request from the feature branch to the test branch
+
 jobs:
   testPromotion:
     runs-on: ubuntu-latest
@@ -19,4 +21,4 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
-          branch: test-promotion
+          branch: test-promotion #creates a temporary branch for the pull request
