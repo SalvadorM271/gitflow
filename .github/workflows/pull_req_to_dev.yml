@@ -27,4 +27,5 @@ jobs:
             - pull request from feature to develop
             - Auto-generated pull request
           labels: automated pr
+          milestone: 1
           draft: false
