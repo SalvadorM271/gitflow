@@ -5,27 +5,20 @@ on:
     branches:
       - "feature/feature_branch"
 
+#this action creates a pull request from the feature branch to the develop branch
+
 jobs:
-  createPullRequest:
+  developPromotion:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
-      - name: Create Pull Request
-        id: cpr
-        uses: peter-evans/create-pull-request@v4.1.0
         with:
-          token: ${{ secrets.TOKEN }}
-          commit-message: Update
-          committer: GitHub <noreply@github.com>
-          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-          signoff: false
-          branch: develop
-          base: feature/feature_branch
-          title: '[Example] Update report'
-          body: |
-            pr report
-            - pull request from feature to develop
-            - Auto-generated pull request
-          labels: automated pr
-          draft: false
+          ref: develop
+      - name: Reset promotion branch
+        run: |
+          git fetch origin feature/feature_branch:feature/feature_branch
+          git reset --hard feature/feature_branch
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          branch: develop-promotion #creates a temporary branch for the pull request
