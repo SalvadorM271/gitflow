@@ -5,15 +5,15 @@ on:
     branches:
       - "feature/feature_branch"
 
-#this action creates a pull request from the feature branch to the test branch
+#this action creates a pull request from the feature branch to the develop branch
 
 jobs:
-  testPromotion:
+  developPromotion:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: test
+          ref: develop
       - name: Reset promotion branch
         run: |
           git fetch origin feature/feature_branch:feature/feature_branch
@@ -21,4 +21,4 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
-          branch: test-promotion #creates a temporary branch for the pull request
+          branch: develop-promotion #creates a temporary branch for the pull request
