@@ -32,7 +32,7 @@ jobs:
         id: version  
         uses: juliansangillo/tag-version@v1  
         with:  
-            production-branch: main  
+            production-branch: testMain  
   # Single deploy job since we're just deploying
   deploy:
     environment:
