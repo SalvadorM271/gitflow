@@ -6,6 +6,7 @@ on:
       - "develop"
 
 #this action creates a pull request from the develop to the main branch
+#but before that runs tests to check if there are no conflicts in the push files
 
 jobs:
   mainPromotion:
