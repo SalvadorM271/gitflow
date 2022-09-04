@@ -8,12 +8,34 @@ This 3 main yml files execute the following functionality to make it possible:
 
 workflow.yml ----------------- adds the version tag when there is a merge to main and deploys the page
 
-pull_req_to_dev.yml ---------- when there is a push from the feature branch to main creates a pull request
+pull_req_to_dev.yml ---------- when there is a push from the feature branch to develop creates a pull request
 
-pull_req_to_main.yml --------- when there is a push into develop creates a pull request to add code to main
+pull_req_to_main.yml --------- when there is a push or merge into develop creates a pull request to add code to main
 
 Important
 
-After pushing the changes to the feature branch, if all pull request were approve by the team and code was push to
-our main branch is important to  remember to update our local develop and main branches with a git pull to avoid
-conflicts.
+When working with a repository it is important to remember to keep our local repository up to date, so it is
+advise to run a git pull command in our local branches after pushing code to this repository
+
+Usage 
+
+following the git workflow guidelines in order to add new features to our code we must work first
+in the feature branch, after the feature is complete we can then push our changes to the feature branch
+by using the following commands:
+
+first we mast check if we are in the feature branch for that we use
+git branch
+then we must add the changes
+git add .
+after that we need to commit our changes adding something special to the end of the commit message, #minor or #major
+depending on the importance of the feature
+git commit -m "example commit #major"
+
+after that a pull request will be raise in the develop branch to add our changes, this pull request must be
+approve in order to continue the workflow, if changes were approve then the workflow will continue, creating
+a pull request to add our changes into the main branch, once this request is approve, the actions will deploy
+the website.
+
+
+
+
