@@ -24,12 +24,21 @@ in the feature branch, after the feature is complete we can then push our change
 by using the following commands:
 
 first we mast check if we are in the feature branch for that we use
+
 git branch
+
 then we must add the changes
+
 git add .
+
 after that we need to commit our changes adding something special to the end of the commit message, #minor or #major
 depending on the importance of the feature
+
 git commit -m "example commit #major"
+
+and finally
+
+git push
 
 after that a pull request will be raise in the develop branch to add our changes, this pull request must be
 approve in order to continue the workflow, if changes were approve then the workflow will continue, creating
