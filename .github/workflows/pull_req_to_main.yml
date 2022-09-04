@@ -1,4 +1,4 @@
-name: "Deploy to github pages"
+name: "create a pull request from develop to main"
 
 on:
   push:
@@ -22,3 +22,4 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           branch: testMain-promotion #creates a temporary branch for the pull request
+          branch-suffix: timestamp
