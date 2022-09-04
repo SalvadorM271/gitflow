@@ -1,0 +1,24 @@
+name: "Deploy to github pages"
+
+on:
+  push:
+    branches:
+      - "feature/feature_branch"
+
+#this action creates a pull request from the feature branch to the develop branch
+
+jobs:
+  developPromotion:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: develop
+      - name: Reset promotion branch
+        run: |
+          git fetch origin feature/feature_branch:feature/feature_branch
+          git reset --hard feature/feature_branch
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          branch: develop-promotion #creates a temporary branch for the pull request
