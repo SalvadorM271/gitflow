@@ -33,7 +33,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
         WITH_V: true
         DEFAULT_BUMP: major
-  # Single deploy job since we're just deploying
+  # Single deploy job since we're just
   deploy:
     environment:
       name: github-pages
