@@ -1,4 +1,4 @@
-name: "create a pull request from develop to main"
+name: "create a pull request from test to testMain"
 
 on:
   push:
@@ -22,4 +22,3 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           branch: testMain-release #creates a temporary branch for the pull request
-          branch-suffix: timestamp
