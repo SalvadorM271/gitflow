@@ -1,4 +1,4 @@
-name: "Deploy to github pages"
+name: "create a pull request from feature to develop"
 
 on:
   push:
